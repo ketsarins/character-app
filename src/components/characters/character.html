@@ -1,3 +1,10 @@
-<div>
-    <span>{{ characterData }}</span>
+<div class="character">
+    <!-- <span>{{ characterData }}</span> -->
+    <div class="character-list">
+        <b-card class="character-info" v-bind:key="item.id" v-for="item in characterData"  img-src="item.image" img-alt="Card image" img-right>
+            <b-card-text>
+                {{item.name}}
+            </b-card-text>
+        </b-card>
+    </div>
 </div>

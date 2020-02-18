@@ -14,8 +14,8 @@ export default {
     console.log("Hello");
     CharacterService.getAllCharacters()
     .then(character => {
-        if (character) {
-            this.characterData = character;
+        if (character && character.results) {
+            this.characterData = character.results;
         }
     })
     .catch(reason => {
