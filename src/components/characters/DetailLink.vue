@@ -8,7 +8,6 @@ export default {
   props: ["id"],
   methods: {
     showDetails(id) {
-      console.log("--id---", id);
       this.$router.push({name: "CharacterInfo", params: { id }});
       
     }

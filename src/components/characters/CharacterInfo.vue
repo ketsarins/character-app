@@ -42,7 +42,9 @@
             <b-tabs class="m-t-sm" content-class="mt-3" fill>
               <b-tab title="EPISODES" active>
                 <div class="ct-episodes">
-                  {{characterInfo.episode}}
+                  <episode :episodesList="characterInfo.episode">
+
+                  </episode>
                 </div>
               </b-tab>
               <b-tab title="MORE INFO">
@@ -69,10 +71,8 @@ export default {
   created() {
     if (this.$route.params && this.$route.params.id) {
       const characterId = this.$route.params.id;
-      console.log("this.$route.query.id", this.$route.params.id);
       CharacterService.getCharacterById(characterId)
         .then(characterInfo => {
-          console.log(characterInfo);
           this.characterInfo = characterInfo;
         })
         .catch(reason => {

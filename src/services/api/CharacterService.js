@@ -15,8 +15,19 @@ export default {
         })
     },
 
+    /**
+     * 
+     * @param {*} id 
+     */
     getCharacterById(id) {
         return axios.get(`/character/${id}`)
+        .then(response => {
+            return response.data;
+        })
+    },
+
+    getCharacterEpisodes(url) {
+        return axios.get(url)
         .then(response => {
             return response.data;
         })
