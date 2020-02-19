@@ -1,10 +1,11 @@
 <template src='./character.html'></template>
 <script>
-import CharacterService from "../../services/api/CharacterService";
+import CharacterService from '@/services/api/CharacterService'
 
 export default {
   name: "character",
   data() {
+    
     return {
       loading: true, // TODO:: Implement loading.
       characterData: []
