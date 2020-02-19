@@ -45,4 +45,7 @@ export default {
 .m-t-sm {
   padding-top: 15px;
 }
+.m-t-md {
+  padding-top: 20px;
+}
 </style>

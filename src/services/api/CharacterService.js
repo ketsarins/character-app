@@ -13,5 +13,12 @@ export default {
         .then(response => {
             return response.data;
         })
+    },
+
+    getCharacterById(id) {
+        return axios.get(`/character/${id}`)
+        .then(response => {
+            return response.data;
+        })
     }
 }
