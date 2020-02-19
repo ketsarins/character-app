@@ -6,12 +6,11 @@ export default {
   name: "character",
   data() {
     return {
-      loading: true,
+      loading: true, // TODO:: Implement loading.
       characterData: []
     }
   },
   created() {
-    console.log("Hello");
     CharacterService.getAllCharacters()
     .then(character => {
         if (character && character.results) {
@@ -20,6 +19,7 @@ export default {
     })
     .catch(reason => {
         console.log(reason);
+        // TODO:: Handle error.
     })
     .finally(() => {
         this.loading = false;
@@ -28,14 +28,15 @@ export default {
 };
 </script>
 <style>
-.card-deck .card {
-  position: relative;
-}
-.m-b-sm {
-  padding-bottom: 15px;
-}
+  .card-deck .card {
+    position: relative;
+  }
+  /* TODO:: Move this to be global style */
+  .m-b-sm {
+    padding-bottom: 15px;
+  }
 
-.m-t-sm {
-  padding-top: 15px;
-}
+  .m-t-sm {
+    padding-top: 15px;
+  }
 </style>

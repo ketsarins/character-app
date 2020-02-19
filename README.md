@@ -9,7 +9,7 @@ npm install
 ```
 npm run serve
 ```
-Note: The 'scripts' in package.json you can specify port like below comand (default: 8080).
+Note: The 'scripts' in package.json you can specify port like the comand below (default: 8080).
 ```
 --port 4000
 ```
