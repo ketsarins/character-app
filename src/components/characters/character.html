@@ -1,0 +1,29 @@
+<div class="character">
+    <div class="character-list row mb-2">
+        <div class="col-sm-6 col-md-3 m-b-sm m-t-sm" v-bind:key="item.id" v-for="item in characterData">
+            <b-card-group deck>
+                <b-card :img-src="item.image" img-alt="Image" img-top>
+                    <h5 class="card-title">{{item.name}}
+                        <!-- TODO:: Move to new component-->
+                        <template v-if="item.status === 'Alive'">
+                            <b-badge pill variant="success">{{item.status}}</b-badge>
+                        </template>
+                        <template v-else-if="item.status === 'Dead'">
+                            <b-badge pill variant="danger">{{item.status}}</b-badge>
+                        </template>
+                        <template v-else>
+                            <b-badge pill variant="secondary">{{item.status}}</b-badge>
+                        </template>
+                    </h5>
+                    <b-card-text>
+                        <div>Species: {{item.species}}</div>
+                        <div>Gender: {{item.gender}}</div>
+                    </b-card-text>
+                    <template v-slot:footer>
+                        <b-button href="#" variant="warning" size="sm">More</b-button>
+                    </template>
+                </b-card>
+            </b-card-group>
+        </div>
+    </div>
+</div>

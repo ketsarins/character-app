@@ -9,7 +9,10 @@ npm install
 ```
 npm run serve
 ```
-
+Note: The 'scripts' in package.json you can specify port like the comand below (default: 8080).
+```
+--port 4000
+```
 ### Compiles and minifies for production
 ```
 npm run build
@@ -19,6 +22,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
