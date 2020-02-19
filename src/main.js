@@ -11,6 +11,8 @@ Vue.config.productionTip = false
 
 // Register BootstrapVue
 import { BootstrapVue } from 'bootstrap-vue'
+
+import router from './router'
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 
@@ -18,5 +20,6 @@ Vue.use(BootstrapVue)
 require('./components/characters');
 
 new Vue({
-  render: h => h(App),
+  router,
+  render: h => h(App)
 }).$mount('#app')
