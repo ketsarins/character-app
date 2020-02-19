@@ -19,9 +19,11 @@
                         <div>Species: {{item.species}}</div>
                         <div>Gender: {{item.gender}}</div>
                     </b-card-text>
-                    <template v-slot:footer>
+                    <!-- <template v-slot:footer>
                         <b-button href="#" variant="warning" size="sm">More</b-button>
-                    </template>
+                    </template> -->
+                    <detail-link :link='item.id'></detail-link>
+
                 </b-card>
             </b-card-group>
         </div>

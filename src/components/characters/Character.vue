@@ -1,6 +1,7 @@
 <template src='./character.html'></template>
 <script>
-import CharacterService from "@/services/api/CharacterService";
+import CharacterService from "@/services/api/CharacterService"
+import DetailLink from './DetailLink';
 
 export default {
   name: "character",
