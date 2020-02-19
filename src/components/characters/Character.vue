@@ -27,3 +27,15 @@ export default {
   }
 };
 </script>
+<style>
+.card-deck .card {
+  position: relative;
+}
+.m-b-sm {
+  padding-bottom: 15px;
+}
+
+.m-t-sm {
+  padding-top: 15px;
+}
+</style>
