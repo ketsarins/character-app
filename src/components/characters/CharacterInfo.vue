@@ -37,14 +37,11 @@
               <span>{{characterInfo.type}}</span>
             </div>
           </div>
-          <!-- TODO:: Move to new component -->
           <div class="ct-more-info-tabs m-t-md">
             <b-tabs class="m-t-sm" content-class="mt-3" fill>
               <b-tab title="EPISODES" active>
                 <div class="ct-episodes">
-                  <episode :episodesList="characterInfo.episode">
-
-                  </episode>
+                  <episode :episodesList="characterInfo.episode"></episode>
                 </div>
               </b-tab>
               <b-tab title="MORE INFO">

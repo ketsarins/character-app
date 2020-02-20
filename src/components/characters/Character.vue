@@ -31,9 +31,9 @@ export default {
           this.loading = false;
         });
     },
-    filterCharacters(status) {
+    filterCharacters(parameters) {
       // TODO:: get characters by more parameters.
-      CharacterService.getCharactersWithFilters(status)
+      CharacterService.getCharactersWithFilters(parameters)
         .then(character => {
           if (character && character.results) {
             this.characterData = character.results;
