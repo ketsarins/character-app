@@ -63,6 +63,9 @@ import CharacterService from "@/services/api/CharacterService";
 
 export default {
   name: "character-info",
+  components: {
+    Episode: () => import("./Episode")
+  },
   data() {
     return {
       characterInfo: []
