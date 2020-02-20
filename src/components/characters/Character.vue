@@ -7,7 +7,8 @@ export default {
   data() {
     return {
       loading: true, // TODO:: Implement loading.
-      characterData: []
+      characterData: [],
+      ctFilter: []
     };
   },
   mounted() {
@@ -17,6 +18,22 @@ export default {
     // Get characters information from service and set characters data to the list.
     getCharacters() {
       CharacterService.getAllCharacters()
+        .then(character => {
+          if (character && character.results) {
+            this.characterData = character.results;
+          }
+        })
+        .catch(reason => {
+          console.log(reason);
+          // TODO:: Handle error.
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    },
+    filterCharacters(status) {
+      // TODO:: get characters by more parameters.
+      CharacterService.getCharactersWithFilters(status)
         .then(character => {
           if (character && character.results) {
             this.characterData = character.results;

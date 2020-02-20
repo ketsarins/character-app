@@ -9,7 +9,10 @@
                 <h6 class="mb-0">Status</h6>
               </template>
               <b-form-group>
-                <b-form-checkbox-group v-model="statusSelected" :options="status" name="status"></b-form-checkbox-group>
+                <b-form-checkbox-group v-model="statusSelected" :options="status" name="status"
+                @change="serchFilter">
+
+                </b-form-checkbox-group>
                 <!-- <span>Selected: {{statusSelected}}</span> -->
               </b-form-group>
             </b-card>
@@ -18,7 +21,7 @@
                 <h6 class="mb-0">Gender</h6>
               </template>
               <b-form-group>
-                <b-form-checkbox-group v-model="genderSelected" :options="gender" name="gender"></b-form-checkbox-group>
+                <b-form-checkbox-group v-model="genderSelected" :options="gender" name="gender" @change="serchFilter"></b-form-checkbox-group>
                 <!-- <span>Selected: {{genderSelected}}</span> -->
               </b-form-group>
             </b-card>
@@ -33,7 +36,7 @@ export default {
   name: "ct-filter",
   data() {
     return {
-      genderSelected: [],
+      genderSelected: [], // TODO:: Change to radio inputs
       gender: [
         { text: "Female", value: "female" },
         { text: "Male", value: "male" },
@@ -46,7 +49,13 @@ export default {
         { text: "Dead", value: "dead" },
         { text: "Unknown", value: "unknown" }
       ]
-    };
+    }
+  },
+  methods: {
+    serchFilter() {
+      // TODO:: Send more parameters to get characters.
+      this.$emit('filterData', this.statusSelected);
+    }
   }
 };
 </script>

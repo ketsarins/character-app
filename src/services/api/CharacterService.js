@@ -31,5 +31,17 @@ export default {
         .then(response => {
             return response.data;
         })
+    },
+
+    /**
+     * Filter characters
+     * TODO:: Change params and url query parameters
+     * @param {Query parameters.} params 
+     */
+    getCharactersWithFilters(params) {
+        return axios.get(`/character/?status=${params}`)
+        .then(response => {
+            return response.data;
+        })
     }
 }
