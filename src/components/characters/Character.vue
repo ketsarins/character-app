@@ -37,15 +37,4 @@ export default {
 .card-deck .card {
   position: relative;
 }
-/* TODO:: Move this to be global style */
-.m-b-sm {
-  padding-bottom: 15px;
-}
-
-.m-t-sm {
-  padding-top: 15px;
-}
-.m-t-md {
-  padding-top: 20px;
-}
 </style>

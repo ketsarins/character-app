@@ -18,6 +18,7 @@ import { BootstrapVue } from 'bootstrap-vue'
 Vue.use(BootstrapVue);
 
 // Import components.
+require('./components/commons');
 require('./components/characters');
 
 new Vue({

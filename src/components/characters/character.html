@@ -1,5 +1,7 @@
 <div class="character">
+    <ct-filter></ct-filter>
     <div class="character-list row mb-2">
+        
         <div class="col-sm-6 col-md-3 m-b-sm m-t-sm" v-bind:key="item.id" v-for="item in characterData">
             <b-card-group deck>
                 <b-card :img-src="item.image" img-alt="Image" img-top>
@@ -19,11 +21,7 @@
                         <div>Species: {{item.species}}</div>
                         <div>Gender: {{item.gender}}</div>
                     </b-card-text>
-                    <!-- <template v-slot:footer>
-                        <b-button href="#" variant="warning" size="sm">More</b-button>
-                    </template> -->
                     <detail-link :id='item.id'></detail-link>
-
                 </b-card>
             </b-card-group>
         </div>
