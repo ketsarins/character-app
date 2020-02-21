@@ -4,7 +4,12 @@
       <b-card>
         <div class="card-text">
           <b-card-group deck>
-            <b-card header-tag="header">
+            <b-card
+              border-variant="success"
+              header-tag="header"
+              header-bg-variant="success"
+              header-text-variant="white"
+            >
               <template v-slot:header>
                 <h6 class="mb-0">Status</h6>
               </template>
@@ -17,7 +22,12 @@
                 ></b-form-radio-group>
               </b-form-group>
             </b-card>
-            <b-card header-tag="header">
+            <b-card
+              border-variant="success"
+              header-tag="header"
+              header-bg-variant="success"
+              header-text-variant="white"
+            >
               <template v-slot:header>
                 <h6 class="mb-0">Gender</h6>
               </template>
@@ -44,6 +54,7 @@ export default {
     return {
       genderSelected: "",
       gender: [
+        { text: "All", value: "" },
         { text: "Female", value: "female" },
         { text: "Male", value: "male" },
         { text: "Genderless", value: "genderless" },
@@ -51,6 +62,7 @@ export default {
       ],
       statusSelected: "",
       status: [
+        { text: "All", value: "" },
         { text: "Alive", value: "alive" },
         { text: "Dead", value: "dead" },
         { text: "Unknown", value: "unknown" }
@@ -77,3 +89,9 @@ export default {
   }
 };
 </script>
+<style>
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #55a846;
+  background-color: #55a846;
+}
+</style>
