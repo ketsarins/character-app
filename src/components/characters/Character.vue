@@ -8,19 +8,23 @@ export default {
     return {
       loading: true, // TODO:: Implement loading.
       characterData: [],
-      ctFilter: []
+      ctFilter: {},
+      currentPage: 1,
+      perPage: 20,
+      totalItems: 0
     };
   },
-  mounted() {
+  created() {
     this.getCharacters();
   },
   methods: {
-    // Get characters information from service and set characters data to the list.
+    // Get all characters information from service and set characters data to the list.
     getCharacters() {
       CharacterService.getAllCharacters()
         .then(character => {
           if (character && character.results) {
             this.characterData = character.results;
+            this.totalItems = character.info.count;
           }
         })
         .catch(reason => {
@@ -31,12 +35,20 @@ export default {
           this.loading = false;
         });
     },
+    // Set pagination and call API to get specific page by current page that get from pagination component.
+    goToPage(page) {
+      let parameters = {
+        page: page
+      };
+      this.filterCharacters(parameters);
+    },
     filterCharacters(parameters) {
-      // TODO:: get characters by more parameters.
-      CharacterService.getCharactersWithFilters(parameters)
+      this.setFilterParam(parameters);
+      CharacterService.getCharactersWithFilters(this.ctFilter)
         .then(character => {
           if (character && character.results) {
             this.characterData = character.results;
+            this.totalItems = character.info.count;
           }
         })
         .catch(reason => {
@@ -46,6 +58,14 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    setFilterParam(parameters) {
+      // Set up current filter parameters to objects
+      if (Object.keys(this.ctFilter).length === 0) {
+        this.ctFilter = parameters;
+      } else {
+        Object.assign(this.ctFilter, parameters);
+      }
     }
   }
 };

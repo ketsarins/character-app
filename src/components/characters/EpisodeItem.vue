@@ -2,7 +2,6 @@
   <div class="episode-item">
     <b-card :title="episodeItem.name">
       <b-card-text>
-        {{episodeItem.id}}
         {{episodeItem.air_date}}
       </b-card-text>
     </b-card>
