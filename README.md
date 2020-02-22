@@ -19,3 +19,7 @@ Note: The 'scripts' in package.json you can specify port like the comand below (
 ```
 npm run build
 ```
+### Run unit test
+```
+npm run test
+```

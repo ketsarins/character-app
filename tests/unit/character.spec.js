@@ -1,22 +1,27 @@
-import { shallowMount, createLocalVue, mount } from '@vue/test-utils'
-import Character from '@/components/characters/Character.vue'
-import { BootstrapVue } from 'bootstrap-vue'
-import CharacterService from "@/services/api/CharacterService"
+import { shallowMount, createLocalVue, mount } from '@vue/test-utils';
+import Character from '@/components/characters/Character.vue';
+import Filters from '@/components/characters/Filters.vue'
+import { BootstrapVue, BootstrapVueIcons, BSpinner } from 'bootstrap-vue';
+
 
 // create an extended `Vue` constructor
-const localVue = createLocalVue()
+const localVue = createLocalVue();
+// Registered vuetify
 // install BootstrapVue plugins
-localVue.use(BootstrapVue)
+localVue.use(BootstrapVue);
+localVue.use(BootstrapVueIcons);
+localVue.component('b-spinner', BSpinner);
+
 
 describe('Character.vue', () => {
-  it('has a mounted function', () => {
-    expect(typeof Character.mounted).toBe('function')
+  it('has a created function', () => {
+    expect(typeof Character.created).toBe('function')
   })
 
   it('renders the correct markup', () => {
     // Mount the component.
     const wrapper = mount(Character, localVue)
-    expect(wrapper.html()).toContain('<div class="character">')
+    expect(wrapper.html()).toContain('<div id="character" class="character">')
   })
 
   it('sets the correct default data', () => {
