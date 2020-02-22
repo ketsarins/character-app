@@ -2,7 +2,6 @@
   <div class="ct-pagination">
     <div class="overflow-auto">
       <b-pagination size="md" :total-rows="totalItemsVal" v-model="currentPage" :per-page="perPageVal"></b-pagination>
-      <p class="mt-3"></p>
     </div>
   </div>
 </template>
@@ -17,7 +16,7 @@ export default {
   },
   data() {
     return {
-      currentPage: this.currentPageVal,
+      currentPage: 1,
     };
   },
   methods: {
@@ -30,6 +29,10 @@ export default {
     // Watch if current page is changed then call goToPage() with new current page value.
     currentPage: function(newValue) {
       this.goToPage(newValue);
+    },
+    // Watch current page value from parent component if changed then updated current page.
+    currentPageVal: function(newValue) {
+      this.currentPage = this.currentPage === newValue? this.currentPage : newValue;
     }
   }
 };

@@ -1,4 +1,6 @@
-# character-app
+# My first Vue.js application
+
+This is a small application to display profile information of some characters from "Rick and Morty". Please enjoin!
 
 ## Project setup
 ```
@@ -16,9 +18,4 @@ Note: The 'scripts' in package.json you can specify port like the comand below (
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```

@@ -40,6 +40,8 @@ export default {
       let parameters = {
         page: page
       };
+      // Set current page to be what it is in pagination component.
+      this.currentPage = page;
       this.filterCharacters(parameters);
     },
     filterCharacters(parameters) {
@@ -64,6 +66,11 @@ export default {
       if (Object.keys(this.ctFilter).length === 0) {
         this.ctFilter = parameters;
       } else {
+        // Checking if parameter is come from fillter component or not
+        if (!Object.keys(parameters).find(key => key === "page")) {
+          // Assign page to be first page
+          Object.assign(this.ctFilter, { page: 1 });
+        }
         Object.assign(this.ctFilter, parameters);
       }
     }
