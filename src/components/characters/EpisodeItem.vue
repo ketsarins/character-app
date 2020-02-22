@@ -1,6 +1,9 @@
 <template>
   <div class="episode-item">
-    <div class="card">
+    <div v-if="!isShow">
+      <b-spinner small label="Small Spinner" type="grow" variant="success"></b-spinner>
+    </div>
+    <div class="card" v-if="isShow">
       <div class="card-body">
         <h5 class="card-title">{{episodeItem.id}}. {{episodeItem.name}}</h5>
         <p class="card-text">{{episodeItem.air_date}}</p>
@@ -15,7 +18,8 @@ export default {
   name: "episode-item",
   data() {
     return {
-      episodeItem: []
+      episodeItem: [],
+      isShow: false
     };
   },
   methods: {
@@ -23,10 +27,12 @@ export default {
       CharacterService.getCharacterEpisodes(url)
         .then(response => {
           this.episodeItem = response;
+          this.isShow = Object.keys(this.episodeItem).length !== 0;
         })
         .catch(reason => {
           console.log(reason);
           // TODO:: Handle error.
+          this.isShow = false;
         });
     }
   },
@@ -37,7 +43,8 @@ export default {
 };
 </script>
 <style>
-.episode-item, .card {
+.episode-item,
+.card {
   height: 100%;
 }
 </style>
