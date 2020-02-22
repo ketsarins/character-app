@@ -1,9 +1,5 @@
 <template>
   <div class="location">
-    <!-- TODO:: Implement details -->
-    <header>
-      <h5>LOCATION</h5>
-    </header>
     <b-card>
       <b-card-text>
         <p>Name: {{locationData.name}}</p>

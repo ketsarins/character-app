@@ -51,7 +51,18 @@
                 </div>
               </b-tab>
               <b-tab title="MORE DETAILS" class="text-left">
-                <location :data="characterInfo.location"></location>
+                <div class="ct-location m-t-sm">
+                  <header>
+                    <h5 class="text-uppercase">Last known location</h5>
+                  </header>
+                  <location :data="characterInfo.location"></location>
+                </div>
+                <div class="ct-location m-t-sm">
+                  <header>
+                    <h5 class="text-uppercase">Origon location</h5>
+                  </header>
+                  <location :data="characterInfo.origin"></location>
+                </div>
               </b-tab>
             </b-tabs>
           </div>
