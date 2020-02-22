@@ -1,7 +1,23 @@
-<div class="character">
+<div id="character" class="character" ref="character">
     <ct-filter @filterData="filterCharacters"></ct-filter>
-    <div class="character-list row mb-2">
-        <div class="col-sm-6 col-md-3 m-b-sm m-t-sm" v-bind:key="item.id" v-for="item in characterData">
+    <div class="ct-loader" v-if="loading">
+        <div class="d-flex justify-content-center mb-3 m-t-sm">
+            <b-spinner type="grow" variant="success" label="Loading..."></b-spinner>
+        </div>
+    </div>
+    <div class="error-template row m-t-sm" v-if="isNoResults">
+        <div class="col-md-12">
+            <div class="text-center">
+                <b-icon-alert-triangle></b-icon-alert-triangle>
+                <h3>Oops!</h3>
+                <h5>0 results</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="character-list row mb-2" v-if="characterData.length > 0">
+        <div class="col-sm-5 col-md-3 m-b-sm m-t-sm" v-bind:key="item.id" v-for="item in characterData">
+
             <b-card-group deck>
                 <b-card :img-src="item.image" img-alt="Image" img-top>
                     <h5 class="card-title">{{item.name}}
@@ -25,5 +41,6 @@
             </b-card-group>
         </div>
     </div>
-    <ct-pagination v-if="characterData.length > 0" @currentPage="goToPage" :currentPageVal="currentPage" :perPageVal="perPage" :totalItemsVal="totalItems"></ct-pagination>
+    <ct-pagination v-if="characterData.length > 0" @currentPage="goToPage" :currentPageVal="currentPage"
+        :perPageVal="perPage" :totalItemsVal="totalItems"></ct-pagination>
 </div>

@@ -10,6 +10,7 @@ export default {
       characterData: [],
       ctFilter: {},
       currentPage: 1,
+      isNoResults: false,
       perPage: 20,
       totalItems: 0
     };
@@ -22,14 +23,12 @@ export default {
     getCharacters() {
       CharacterService.getAllCharacters()
         .then(character => {
-          if (character && character.results) {
-            this.characterData = character.results;
-            this.totalItems = character.info.count;
-          }
+          this.handleSuccess(character);
         })
         .catch(reason => {
           console.log(reason);
           // TODO:: Handle error.
+          this.handleError();
         })
         .finally(() => {
           this.loading = false;
@@ -44,18 +43,30 @@ export default {
       this.currentPage = page;
       this.filterCharacters(parameters);
     },
+    handleError() {
+      this.isNoResults = true;
+      this.characterData = [];
+      this.totalItems = 0;
+      this.loading = false;
+    },
+    handleSuccess(character) {
+      if (character && character.results) {
+        this.characterData = character.results;
+        this.totalItems = character.info.count;
+        this.isNoResults = this.characterData.length < 0;
+        this.loading = this.characterData.length < 0;
+      }
+    },
     filterCharacters(parameters) {
       this.setFilterParam(parameters);
       CharacterService.getCharactersWithFilters(this.ctFilter)
         .then(character => {
-          if (character && character.results) {
-            this.characterData = character.results;
-            this.totalItems = character.info.count;
-          }
+          this.handleSuccess(character);
         })
         .catch(reason => {
           console.log(reason);
           // TODO:: Handle error.
+          this.handleError();
         })
         .finally(() => {
           this.loading = false;
@@ -80,5 +91,9 @@ export default {
 <style>
 .card-deck .card {
   position: relative;
+}
+.error-template .b-icon.bi {
+  width: 3rem;
+  height: 3rem;
 }
 </style>
