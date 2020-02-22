@@ -50,8 +50,8 @@
                   <episode :episodesList="characterInfo.episode"></episode>
                 </div>
               </b-tab>
-              <b-tab title="MORE DETAILS">
-                <div class="ct-more-info"></div>
+              <b-tab title="MORE DETAILS" class="text-left">
+                <location :data="characterInfo.location"></location>
               </b-tab>
             </b-tabs>
           </div>
@@ -66,7 +66,8 @@ import CharacterService from "@/services/api/CharacterService";
 export default {
   name: "character-info",
   components: {
-    Episode: () => import("./Episode")
+    Episode: () => import("./Episode"),
+    Location: () => import("./Location")
   },
   data() {
     return {

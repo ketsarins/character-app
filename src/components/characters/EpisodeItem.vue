@@ -1,10 +1,11 @@
 <template>
-  <div class="episode-item m-b-sm">
-    <b-card :title="episodeItem.name">
-      <b-card-text>
-        {{episodeItem.air_date}}
-      </b-card-text>
-    </b-card>
+  <div class="episode-item">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{episodeItem.id}}. {{episodeItem.name}}</h5>
+        <p class="card-text">{{episodeItem.air_date}}</p>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -36,3 +37,7 @@ export default {
 };
 </script>
 <style>
+.episode-item, .card {
+  height: 100%;
+}
+</style>

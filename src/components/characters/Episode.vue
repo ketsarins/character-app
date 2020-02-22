@@ -1,13 +1,12 @@
 <template>
-  <div class="episode-info">
-    <div v-bind:key="item" v-for="item in list">
-      <episode-item :url="item">
-      </episode-item>
+  <div class="episode-info row">
+    <div v-bind:key="item" v-for="item in list" class="col-sm-6 col-md-3 m-b-sm m-t-sm">
+      <episode-item :url="item"></episode-item>
     </div>
   </div>
 </template>
 <script>
-import EpisodeItem from './EpisodeItem'
+import EpisodeItem from "./EpisodeItem";
 
 export default {
   name: "episode",
