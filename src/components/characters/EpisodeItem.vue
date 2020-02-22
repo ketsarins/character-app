@@ -1,5 +1,5 @@
 <template>
-  <div class="episode-item">
+  <div class="episode-item m-b-sm">
     <b-card :title="episodeItem.name">
       <b-card-text>
         {{episodeItem.air_date}}
