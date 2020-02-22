@@ -1,7 +1,5 @@
 <div class="character">
     <ct-filter @filterData="filterCharacters"></ct-filter>
-    <ct-pagination @currentPage="goToPage" :currentPageVal="currentPage" :perPageVal="perPage" 
-        :totalItemsVal="totalItems"></ct-pagination>
     <div class="character-list row mb-2">
         <div class="col-sm-6 col-md-3 m-b-sm m-t-sm" v-bind:key="item.id" v-for="item in characterData">
             <b-card-group deck>
@@ -27,4 +25,5 @@
             </b-card-group>
         </div>
     </div>
+    <ct-pagination v-if="characterData.length > 0" @currentPage="goToPage" :currentPageVal="currentPage" :perPageVal="perPage" :totalItemsVal="totalItems"></ct-pagination>
 </div>

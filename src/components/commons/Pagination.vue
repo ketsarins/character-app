@@ -1,7 +1,7 @@
 <template>
   <div class="ct-pagination">
     <div class="overflow-auto">
-      <b-pagination size="md" :total-rows="totalItemsVal" v-model="currentPage" :per-page="perPageVal"></b-pagination>
+      <b-pagination class="text-success" size="md" :total-rows="totalItemsVal" v-model="currentPage" :per-page="perPageVal"></b-pagination>
     </div>
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
   },
   data() {
     return {
-      currentPage: 1,
+      // Avoid mutating 'currentPageVal' in prop directly becase the value will be overwritten 
+      // whenever the parent component re-renders.
+      currentPage: 1, 
     };
   },
   methods: {
@@ -26,11 +28,11 @@ export default {
     }
   },
   watch: {
-    // Watch if current page is changed then call goToPage() with new current page value.
+    // Watch if currentPage is changed then call goToPage() with new current page value.
     currentPage: function(newValue) {
       this.goToPage(newValue);
     },
-    // Watch current page value from parent component if changed then updated current page.
+    // Watch currentPageVal in prop (value from parent component) if changed then updated current page.
     currentPageVal: function(newValue) {
       this.currentPage = this.currentPage === newValue? this.currentPage : newValue;
     }
