@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import Header from './Header';
 import Pagination from './Pagination';
 
