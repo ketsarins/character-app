@@ -10,6 +10,7 @@
 </template>
 <script>
 import LocationService from "@/services/api/LocationService";
+
 export default {
   name: "location",
   props: {

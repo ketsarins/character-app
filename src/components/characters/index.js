@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import Character from './Character';
 import DetailLink from './DetailLink';
-import CharacterInfo from './CharacterInfo'
-import Filters from './Filters'
+import CharacterInfo from './CharacterInfo';
+import Filters from './Filters';
 
 
 // Register the components

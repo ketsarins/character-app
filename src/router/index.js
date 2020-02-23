@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Character from '../components/characters/Character.vue'
-import CharacterInfo from '../components/characters/CharacterInfo.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Character from '../components/characters/Character.vue';
+import CharacterInfo from '../components/characters/CharacterInfo.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -22,4 +22,4 @@ const router = new VueRouter({
   routes
 })
 
-export default router
+export default router;
