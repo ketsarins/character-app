@@ -1,0 +1,3 @@
+- Keep filters data when go back to home page.
+- Do tests for other methods in CharactersService.
+- Do tests for other components.
