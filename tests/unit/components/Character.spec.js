@@ -1,17 +1,17 @@
 import { shallowMount, createLocalVue, mount } from '@vue/test-utils';
 import Character from '@/components/characters/Character.vue';
-import Filters from '@/components/characters/Filters.vue'
 import { BootstrapVue, BootstrapVueIcons, BSpinner } from 'bootstrap-vue';
-
+import CharacterFilter from '../../../src/components/characters/CharacterFilters.vue';
 
 // create an extended `Vue` constructor
 const localVue = createLocalVue();
-// Registered vuetify
-// install BootstrapVue plugins
+// register BootstrapVue plugins
 localVue.use(BootstrapVue);
 localVue.use(BootstrapVueIcons);
 localVue.component('b-spinner', BSpinner);
 
+// register components
+localVue.component('ct-filters', CharacterFilter);
 
 describe('Character.vue', () => {
   it('has a created function', () => {
@@ -20,7 +20,7 @@ describe('Character.vue', () => {
 
   it('renders the correct markup', () => {
     // Mount the component.
-    const wrapper = mount(Character, localVue)
+    const wrapper = mount(Character, { localVue })
     expect(wrapper.html()).toContain('<div id="character" class="character">')
   })
 
@@ -40,6 +40,6 @@ describe('Character.vue', () => {
     })
 
     expect(getCharacters).toHaveBeenCalled()
-  });
+  })
 
 })
