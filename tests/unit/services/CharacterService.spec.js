@@ -1,5 +1,3 @@
-import { shallowMount, createLocalVue, mount } from '@vue/test-utils';
-import Vue from 'vue';
 import CharacterService from '../../../src/services/api/CharacterService';
 
 describe('CharacterService.vue', () => {
