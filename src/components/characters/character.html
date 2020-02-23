@@ -1,5 +1,5 @@
-<div id="character" class="character" ref="character">
-    <ct-filter @filterData="filterCharacters"></ct-filter>
+<div id="character" class="character">
+    <ct-filters @filterData="filterCharacters"></ct-filters>
     <div class="ct-loader" v-if="loading">
         <div class="d-flex justify-content-center mb-3 m-t-sm">
             <b-spinner type="grow" variant="success" label="Loading..."></b-spinner>

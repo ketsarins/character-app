@@ -9,4 +9,4 @@ import Filters from './Filters'
 Vue.component('character', Character);
 Vue.component('detail-link', DetailLink);
 Vue.component('character-info', CharacterInfo);
-Vue.component('ct-filter', Filters);
+Vue.component('ct-filters', Filters);

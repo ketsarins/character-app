@@ -49,7 +49,7 @@
 </template>
 <script>
 export default {
-  name: "ct-filters",
+  name: "CharacterFilters",
   data() {
     return {
       genderSelected: "",

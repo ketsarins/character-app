@@ -5,6 +5,24 @@ import axios from 'axios';
  */
 export default {
     /**
+    * Build url query string
+    * @param {Query string object} params 
+    */
+    buildQuery(params) {
+        // If parameter is number or array
+        if (typeof params === 'number' || Array.isArray(params)) {
+            return `${params}`;
+        }
+
+        if (typeof params === 'object' && Object.keys(params).length > 0) {
+            const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+            return `?${queryString}`
+        }
+
+        // Parames is not object, empty object, number or array then return empty string
+        return '';
+    },
+    /**
      * To get all characts
      */
     getAllCharacters() {
@@ -38,22 +56,10 @@ export default {
      * @param {Opject of query parameters.} params 
      */
     getCharactersWithFilters(params) {
-        const queryStr = buildQuery(params);
+        const queryStr = this.buildQuery(params);
         return axios.get(`/character/${queryStr}`)
             .then(response => {
                 return response.data;
             })
     },
 }
-
-/**
- * Build query string from an object.
- * @param {Query string object} params 
- */
-export const buildQuery = function (params) {
-    if (typeof params !== 'object' && Object.keys(params).length === 0) {
-        return `${params}`
-    }
-    const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-    return `?${queryString}`
-};
